@@ -16,6 +16,14 @@ import tseslint from 'typescript-eslint'
 
 const UI_GENERATED = 'src/renderer/src/components/ui/**'
 const LINT_FIXTURES = '**/__lint_fixtures__/**'
+// `allowDefaultProject` interdit tout glob contenant `**` (garde-fou perf de typescript-eslint) :
+// un glob explicite par dossier de fixtures, à plat.
+const LINT_FIXTURE_DIRS = [
+  'src/renderer/src/__lint_fixtures__/*',
+  'src/renderer/src/components/ui/__lint_fixtures__/*',
+  'src/main/__lint_fixtures__/*',
+  'src/shared/__lint_fixtures__/*',
+]
 const TAILWIND_RAW_COLOR = String.raw`/^(?:[a-z-]+:)*(?:bg|text|border|ring|fill|stroke|outline|decoration|divide|from|via|to|shadow|accent|caret|placeholder)-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|black|white)(?:-\d{2,3})?(?:\/\d{1,3})?$/`
 const FOREIGN_UI = [
   'vuetify',
@@ -48,7 +56,11 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        // Les fixtures __lint_fixtures__/ sont exclues des tsconfig.*.json (elles ne doivent
+        // pas être compilées : imports de bibliothèques non installées, globals interdits —
+        // voir tsconfig.web.json/tsconfig.node.json). `allowDefaultProject` évite l'erreur
+        // "was not found by the project service" tout en les gardant lintables. Spec §11.4.
+        projectService: { allowDefaultProject: LINT_FIXTURE_DIRS },
         tsconfigRootDir: import.meta.dirname,
         extraFileExtensions: ['.vue'],
       },

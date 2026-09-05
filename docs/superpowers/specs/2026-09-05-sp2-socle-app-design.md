@@ -440,6 +440,31 @@ rapport :
    `eslint.config.mjs` ni `prettier.config.mjs` au programme même s'ils sont listés dans
    `include` (ce sont des `.mjs`, pas des `.ts`) ; ESLint typé (`projectService`) les rapportait
    alors en erreur de parsing (« not found by the project service »).
+9. Trou découvert à la tâche 4 (fixtures `__lint_fixtures__/`), non anticipé par le plan : deux
+   des sept fixtures ne peuvent pas compiler par construction — `ForeignUi.vue` importe
+   `naive-ui` et `primevue/button`, jamais installés (c'est le point du test : prouver que
+   `no-restricted-imports` les refuse). Or `tsconfig.web.json` et `tsconfig.node.json` les
+   incluaient (`src/renderer/src/**/*`, `src/shared/**/*`, `src/main/**/*`), donc
+   `npm run typecheck` (`vue-tsc`/`tsc`) échouait dessus en TS2307, alors que `npm run lint`
+   ignore déjà ces dossiers (`ignores`). Fix en deux temps :
+   - `"exclude": ["**/__lint_fixtures__/**"]` ajouté aux deux tsconfig : les fixtures ne sont
+     jamais destinées à compiler, seulement à être lintées.
+   - Ce retrait casse à son tour `parserOptions.projectService` (ESLint typé) : un fichier hors
+     de tout tsconfig référencé fait échouer le parsing avec « was not found by the project
+     service ». Fix : `projectService: { allowDefaultProject: LINT_FIXTURE_DIRS }` dans
+     `eslint.config.mjs`, où `LINT_FIXTURE_DIRS` liste les quatre dossiers de fixtures à plat
+     (`.../__lint_fixtures__/*`, un seul niveau). `allowDefaultProject` refuse tout glob contenant
+     `**` (garde-fou perf de typescript-eslint, cf. `validateDefaultProjectForFilesGlob`), d'où
+     des globs par dossier plutôt que le motif `LINT_FIXTURES` global. Effet de bord observé et
+     accepté (sans incidence sur le test, qui filtre par `ruleId` précis) : dans le « projet par
+     défaut », des règles type-aware supplémentaires (`@typescript-eslint/no-unnecessary-*`,
+     `prefer-nullish-coalescing`…) réclament `strictNullChecks`, absent de ce contexte lenient.
+10. Corollaire du point 9, découvert au premier `git commit` de la tâche 4 : le hook pre-commit
+    (`lint-staged`, tâche 3) passe explicitement les fixtures staged à
+    `eslint --fix --max-warnings 0`, qui les rapporte alors « ignorées » en `warning` (elles
+    matchent `ignores`) au lieu de les sauter silencieusement ; `--max-warnings 0` compte ce
+    warning comme un échec et bloque le commit. Fix : `--no-warn-ignored` ajouté à la commande
+    `lint-staged` de `package.json` (`*.{ts,vue,mjs,js}`).
 
 Deux corrections de squelette (tâche 1) au passage, remontées par le lint et corrigées dans le
 code plutôt que masquées : `electron.vite.config.ts` n'appelle plus `externalizeDepsPlugin()`

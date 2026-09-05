@@ -29,5 +29,8 @@
     "src/preload/**/*",
     "src/shared/**/*",
     "tests/**/*"
-  ]
+  ],
+  // Fixtures de tests/lint/design-system.test.ts : lintées uniquement par ESLint (ignores),
+  // volontairement fautives — pas destinées à compiler. Spec §11.4.
+  "exclude": ["**/__lint_fixtures__/**"]
 }

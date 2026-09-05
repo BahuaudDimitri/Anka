@@ -86,7 +86,7 @@
   },
   "lint-staged": {
     "*.{ts,vue,mjs,js}": [
-      "eslint --fix --max-warnings 0",
+      "eslint --fix --max-warnings 0 --no-warn-ignored",
       "prettier --write"
     ],
     "*.{json,yml,yaml,css,md}": [

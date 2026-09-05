@@ -27,5 +27,9 @@
     "src/renderer/src/**/*.vue",
     "src/shared/**/*",
     "src/preload/*.d.ts"
-  ]
+  ],
+  // Fixtures de tests/lint/design-system.test.ts : lintées uniquement par ESLint (ignores),
+  // volontairement fautives (imports de bibliothèques non installées, globals interdits) —
+  // pas destinées à compiler. Non vérifié par le plan §Tâche 4, spec §11.4.
+  "exclude": ["**/__lint_fixtures__/**"]
 }
