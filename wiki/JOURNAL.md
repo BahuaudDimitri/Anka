@@ -17,3 +17,4 @@ La création d'une fiche s'écrit `· (création) → hypothese · sources initi
 2026-09-05 · elevage-vue-d-ensemble · hypothese (inchangé) · révision post-alerte : seuil 7 500/10 000 et gestation requalifiés « ancien système » ; incohérence à trancher en vérif : « jauges sur 100 000, seuil 20 000 » ici vs « max 20 000 par jauge » dans jauges
 2026-09-05 · parcours-debutant · (création) → hypothese · construit sur les fiches 3.5 validées ; doute majeur : un Extrait suffit-il à mener les jauges de monture à 20 000 (à vérifier en jeu)
 2026-09-05 · rentabilite-multi-compte · (création) → hypothese · première version refusée (chiffres pré-3.5 présentés comme actuels) ; refaite sur les mécaniques 3.5 avec modèle de coût à inconnues nommées ; aucun prix post-3.5 trouvé, 4 fils du forum officiel en 403
+2026-09-05 · digest-debutant · (création) → hypothese · condense les En bref des 10 fiches dans l'ordre de lecture débutant ; « À challenger » à remplir par le joueur
