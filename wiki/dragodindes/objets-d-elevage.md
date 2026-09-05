@@ -117,7 +117,8 @@ sur 100 000, une par famille de carburant. Le palier du carburant fixe jusqu'où
 (Extrait 40 000, Philtre 70 000, Potion 90 000, Élixir 100 000), et la hauteur de la jauge d'enclos fixe
 le débit vers la monture : +10 points toutes les 10 secondes entre 0 et 40 000, +20 entre 40 000 et
 70 000, +30 entre 70 000 et 90 000, +40 au-dessus. Un Extrait suffit donc à remplir une jauge de monture
-(20 000), quatre fois moins vite qu'un Élixir. L'infographie affiche « 0/2 jauges activées » : deux
+(20 000), environ quatre fois moins vite qu'un Élixir si celui-ci tient son palier maximal en
+continu (déduction du rédacteur à partir des débits, pas une lecture directe). L'infographie affiche « 0/2 jauges activées » : deux
 jauges d'enclos actives au plus en même temps.
 
 | Objet / mesure | Jauge concernée | Effet / valeur | Durabilité | Source |

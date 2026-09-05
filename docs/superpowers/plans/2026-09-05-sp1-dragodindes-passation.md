@@ -79,10 +79,9 @@ Documents du chantier :
 
 ## 4. UNVERIFIED
 
-- **Commit `715ce5a` (infographie des jauges d'enclos)** : relu par le pilote sur l'image
-  `tuto3i48jauges_orig.png` du Guide de l'éleveur, mais **pas repassé par le subagent
-  vérificateur** (le cap de 2 passes était atteint ; un complément lui a été envoyé, sans réponse
-  au moment de la coupure). Quatre fiches touchées : objets, jauges, parcours, modele-donnees.
+- **Commit `715ce5a` (infographie des jauges d'enclos)** : vérifié par le subagent en complément
+  de passe 2 (il a lu les images lui-même) : conforme, une nuance corrigée (le « 4x » est une
+  déduction, reformulé). Reste UNVERIFIED **en jeu**.
 - **Tout ce qui est marqué « à confirmer en jeu »** dans les « À challenger » : débit +10/10 s au
   palier Extrait, taux Génétons → parchemins chez Eugène Éton, emplacement de l'HDV des montures,
   capacité de l'étable (250), palier d'enclos 40 niveaux, prix post-3.5 (aucun trouvé).
@@ -123,8 +122,8 @@ Documents du chantier :
 - **Les rapports de subagents arrivent par lots et en désordre** (une réponse à la première
   alerte peut arriver après l'envoi de la seconde). Vérifier l'état du fichier sur disque plutôt
   que de se fier au dernier rapport.
-- **Cap de 2 passes de vérification** : un commit tardif (infographie) est resté hors passe. Si
-  une découverte arrive après la passe 2, la marquer UNVERIFIED plutôt que relancer.
+- **Un commit tardif après la passe 2** (infographie) a pu être couvert en renvoyant le même
+  vérificateur sur le diff précis, à faible coût ; sinon le marquer UNVERIFIED.
 
 **Environnement et outillage**
 - Heredoc bash long qui casse : piège permanent, en mémoire
@@ -161,7 +160,7 @@ Documents du chantier :
 | INDEX = fichiers | `fiches=12 index=12 OK` | `ls wiki/dragodindes/*.md \| wc -l` ; `grep -c '^\| .* \| .* \| .* \| .* \| 20' wiki/INDEX.md` |
 | Zéro dofusdb.fr | `dofusdb absent: OK` | `grep -rl dofusdb.fr wiki/ --exclude=CONVENTIONS.md` |
 | Sources vérifiées | passe 1 : ~27 URL rouvertes, 6 défauts corrigés (`248ed60`, `b51ca6c`) ; passe 2 : tout OK | rapports du subagent `verif-wiki-sp1` (conversation SP1) |
-| Commit infographie | lu par le pilote, image `tuto3i48jauges_orig.png` | **UNVERIFIED** par subagent et en jeu |
+| Commit infographie | image lue par le pilote et par le subagent, 4 fiches conformes | **UNVERIFIED** en jeu seulement |
 | Digest lisible en 5 min | 1 017 mots | `wc -w wiki/dragodindes/digest-debutant.md` |
 | Local = distant | `2f2df3a` des deux côtés, arbre propre | `git rev-parse HEAD @{push}; git status --porcelain` |
 | PR ouverte | **UNVERIFIED** : `gh pr list` vide, compte pro sans accès ; le joueur l'ouvre | https://github.com/BahuaudDimitri/Anka/pull/new/feature/dofus-progression-gains |
