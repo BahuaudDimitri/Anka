@@ -22,3 +22,5 @@ La création d'une fiche s'écrit `· (création) → hypothese · sources initi
 2026-09-05 · objets-d-elevage · valide (inchangé) · vérif adversariale : phrase « nom officiel confirmé par l'API DofusDude » retirée (l'API ne le dit pas) ; plafonds 40/70/90/100 % rattachés à la jauge d'enclos, extension aux jauges de monture marquée non confirmée
 2026-09-05 · parcours-debutant, modele-donnees · hypothese (inchangé) · vérif adversariale : « niveau 60 » re-sourcé vers Les Dragodindes (Dofus pour les Noobs), le Guide de l'éleveur ne le dit pas
 2026-09-05 · astuce-parchemins · hypothese (inchangé) · vérif adversariale : date papycha précisée (2026-04-17)
+2026-09-05 · astuce-parchemins · hypothese (inchangé) · le joueur confirme que le verdict correspond à ce qu'il avait entendu (ancienne mécanique Garde Montay) ; passage en valide à sa première vérif du circuit Génétons en jeu
+2026-09-05 · parcours-debutant · à creuser · exigence joueur pour SP3 : un écran qui permet de cocher chaque étape du parcours (fait / pas fait) ; le joueur signale que les images du Guide de l'éleveur 2026 contiennent des infos non lues en texte

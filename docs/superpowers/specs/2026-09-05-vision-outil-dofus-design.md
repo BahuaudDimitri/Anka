@@ -103,7 +103,7 @@ car le modèle de données de l'écran de suivi dépend de la compréhension du 
 |---|---|---|---|
 | SP1 | Recherche dragodindes + format wiki | fiches, digest débutant, `modele-donnees.md` | non |
 | SP2 | Socle app | `.exe` qui se met à jour, rend le wiki, gère profil/serveur, stockage, export/import | oui |
-| SP3 | Écran de suivi élevage | saisie des dragodindes et jauges, notes perso par fiche | oui |
+| SP3 | Écran de suivi élevage | saisie des dragodindes et jauges, notes perso par fiche, parcours débutant cochable étape par étape (demande joueur du 2026-09-05) | oui |
 | SP4 | Analyse générale Dofus | fiches progression et kamas, digest | non |
 | SP5+ | Modules selon besoins | prix HDV saisis, rentabilité craft, etc. | selon |
 
