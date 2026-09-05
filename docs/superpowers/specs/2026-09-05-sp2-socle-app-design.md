@@ -466,6 +466,69 @@ rapport :
     warning comme un échec et bloque le commit. Fix : `--no-warn-ignored` ajouté à la commande
     `lint-staged` de `package.json` (`*.{ts,vue,mjs,js}`).
 
+11. Trou découvert à la tâche 5 (composants shadcn-vue générés), non anticipé par le plan :
+    `eslint-plugin-import-x`/`eslint-import-resolver-typescript` étaient installés mais jamais
+    câblés dans `eslint.config.mjs` (aucun `settings['import-x/resolver-next']`) — `import-x/no-unresolved`
+    ne connaissait donc aucun alias `@/*`/`@shared/*`, et le premier import `@/lib/utils` (généré
+    par la CLI) le révélait en 174 faux positifs. Fix : bloc `settings` ajouté à la section
+    « Imports, tout app/ » avec `createTypeScriptImportResolver({ project: ['tsconfig.web.json',
+    'tsconfig.node.json'], noWarnOnMultipleProjects: true })`. Ce trou touchait tout `app/`, pas
+    seulement `components/ui/` : sans ce fix, tout futur import par alias aurait été signalé
+    « Unable to resolve path to module ».
+    Une fois ce fix posé, quatre règles restaient en échec sur les composants générés eux-mêmes
+    (pas des faux positifs, du vrai bruit de la convention CLI) : ajoutées au bloc `UI_GENERATED`
+    de `eslint.config.mjs`, désactivées **uniquement** pour `components/ui/**` :
+    - `vue/multi-word-component-names` : primitives nommées à l'identique de l'élément qu'elles
+      enveloppent (`Button`, `Badge`, `Card`, `Input`, `Label`, `Select`, `Separator`, `Sonner`,
+      `Tooltip`, `Accordion`) — renommer casserait la parité avec la registry upstream ;
+    - `import-x/order` : convention d'import propre à la CLI (types reka-ui/vue mêlés aux valeurs,
+      alias `.`/`@/lib/utils` non alphabétisés) — réordonner à la main divergerait du généré à
+      chaque futur `add --overwrite` ;
+    - `import-x/no-cycle` : `index.ts` réexporte le composant et son type de variants CVA, que le
+      composant réimporte via `import type { XVariants } from '.'` — cycle uniquement au niveau
+      des types (supprimé à la compilation), pattern shadcn-vue standard (`Badge`, `Button`,
+      `SelectContent`) ;
+    - `@typescript-eslint/prefer-function-type` : `Input.vue` type le champ HTML natif avec un
+      type littéral à signature d'appel issu tel quel de la registry upstream ;
+    - `vue/require-default-prop` (warning, mais `--max-warnings 0` en fait un échec) : la valeur
+      par défaut de `variant`/`size`/`class` vit dans les `cva()` du fichier généré, pas dans
+      `defineProps`.
+12. Trou plus large découvert à la tâche 5, **hors périmètre `components/ui/`, décision à valider
+    par le pilote** : `tsconfig.web.json` portait `exactOptionalPropertyTypes: true` (point retenu
+    du plan initial), incompatible avec les types reka-ui d'à peu près tous les composants
+    shadcn-vue non triviaux (`Badge`, `Input`, `Select*`, `Accordion*`, `RadioGroup*`, `Tooltip*`,
+    `ScrollArea*`, `AlertDialog*`, `Sonner`, `Separator` — 32 fichiers, `vue-tsc` TS2379/TS2769) :
+    les props optionnelles de reka-ui (`as?`, `dir?`, `orientation?`…) ne portent pas `| undefined`
+    explicite, ce qui casse dès qu'un composant les délègue via `v-bind`/`reactiveOmit`.
+    Incompatibilité connue de l'écosystème reka-ui, pas un défaut du code généré. Ni éditable (CLI
+    écrase `components/ui/` à chaque `add --overwrite`) ni contournable par exclusion tsconfig
+    (`Badge.vue` est importé par du code applicatif réel dès cette tâche — App.vue —, donc
+    type-vérifié transitivement quel que soit `exclude`). Fix retenu : `exactOptionalPropertyTypes`
+    retiré de `tsconfig.web.json` (renderer entier ; `tsconfig.node.json` — main/preload/shared —
+    inchangé). Alternative écartée : isoler `components/ui/` dans un projet TS de référence séparé
+    pour garder le flag ailleurs — plus correct mais nettement plus lourd à mettre en place pour un
+    dossier régénéré par CLI ; à reconsidérer si ce compromis pose problème en pratique.
+13. `shadcn-vue add` (cette CLI, version 2.8.2) résout `iconLibrary: "lucide"` vers le paquet
+    `@lucide/vue` (pas `lucide-vue-next`, pré-installé par le plan initial et resté inutilisé) et
+    l'ajoute en `dependencies` de `package.json`. Remis en `devDependencies` (bundlé par Vite,
+    l'installateur electron-builder n'a pas à l'embarquer), `package-lock.json` resynchronisé par
+    `npm install`. `lucide-vue-next` reste en `devDependencies`, non utilisé par le code généré ;
+    laissé en l'état (retrait hors périmètre de cette tâche).
+14. Hook pre-commit cassé par le volume du commit de la tâche 5 (63 fichiers `*.{ts,vue,mjs,js}`
+    d'un coup, jamais atteint aux tâches précédentes) : `lint-staged` invoque `eslint --fix` avec
+    la liste complète des chemins **absolus** en arguments, et le `.cmd` shim npm sous Windows la
+    passe par `cmd.exe` (limite ~8191 caractères) — échec « La ligne de commande est trop longue »,
+    alors que `npm run lint`/`npm run verify` (une seule invocation `eslint .`, aucun argument par
+    fichier) passent sans problème sur le même code. Le chunking automatique de `lint-staged`
+    (`maxArgLength`, censé s'activer via son CLI) ne s'est pas déclenché ici. Fix : `--relative`
+    ajouté à l'invocation `npx lint-staged` de `.husky/pre-commit` (`"relative": true` n'est **pas**
+    une clé valide de la config `lint-staged` du `package.json` — seulement un flag CLI/option de
+    l'API Node, tenté d'abord et rejeté par `validateConfig`). Chemins relatifs au cwd du hook
+    (`app/`) au lieu d'absolus : réduit la longueur de la chaîne d'arguments sans changer le
+    résultat du lint (ESLint résout les chemins relatifs depuis son cwd, identique à
+    `eslint.config.mjs`). Pas de règle contournée, aucun code masqué : purement la taille de la
+    ligne de commande.
+
 Deux corrections de squelette (tâche 1) au passage, remontées par le lint et corrigées dans le
 code plutôt que masquées : `electron.vite.config.ts` n'appelle plus `externalizeDepsPlugin()`
 (`@typescript-eslint/no-deprecated` — l'option équivalente `build.externalizeDeps` vaut déjà

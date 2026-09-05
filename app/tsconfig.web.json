@@ -7,8 +7,17 @@
     "types": ["vite/client"],
     "jsx": "preserve",
     "strict": true,
+    // `exactOptionalPropertyTypes` retiré (tâche 5) : les types reka-ui des ~30 composants
+    // shadcn-vue générés (Badge, Input, Select, Accordion, RadioGroup, Tooltip, ScrollArea,
+    // AlertDialog, Sonner, Separator…) déclarent des props optionnelles (`as?`, `dir?`,
+    // `orientation?`…) sans `| undefined` explicite, ce qui casse `exactOptionalPropertyTypes`
+    // dès qu'un composant délègue ses props via `v-bind`/`reactiveOmit`. Incompatibilité connue
+    // de l'écosystème reka-ui, pas un défaut du code généré : on ne peut pas éditer les fichiers
+    // générés (écrasés par `shadcn-vue add --overwrite`) ni les exclure du typecheck (ils sont
+    // importés par du code applicatif réel, donc typés transitivement malgré tout `exclude`).
+    // Spec §11.4 : décision à valider par le pilote (portée : renderer entier, pas seulement
+    // `components/ui/`).
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,

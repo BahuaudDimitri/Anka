@@ -2,6 +2,7 @@
 import js from '@eslint/js'
 import vitestPlugin from '@vitest/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 import { importX } from 'eslint-plugin-import-x'
 import pluginN from 'eslint-plugin-n'
 import pluginPromise from 'eslint-plugin-promise'
@@ -89,6 +90,17 @@ export default tseslint.config(
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   {
+    // Sans ce resolver, `import-x/no-unresolved` ne connaît pas les alias `@/*` et
+    // `@shared/*` déclarés dans tsconfig.*.json (compilerOptions.paths) : il faut le câbler
+    // explicitement, `eslint-import-resolver-typescript` n'est pas activé par défaut.
+    settings: {
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          project: ['tsconfig.web.json', 'tsconfig.node.json'],
+          noWarnOnMultipleProjects: true,
+        }),
+      ],
+    },
     rules: {
       'import-x/no-cycle': 'error',
       'import-x/order': [
@@ -216,6 +228,27 @@ export default tseslint.config(
       // Le label des contrôles générés vient du composant parent
       'vuejs-accessibility/form-control-has-label': 'off',
       'vuejs-accessibility/label-has-for': 'off',
+      // Primitives shadcn-vue nommées à l'identique de l'élément HTML/reka-ui qu'elles
+      // enveloppent (Button, Badge, Card, Input, Label, Select, Separator, Sonner, Tooltip,
+      // Accordion) : renommer casserait la parité avec la registry upstream. Spec §11.4.
+      'vue/multi-word-component-names': 'off',
+      // Import order propre à la CLI shadcn-vue (types reka-ui/vue mêlés aux imports de
+      // valeur, alias `.`/`@/lib/utils` non alphabétisés) : réordonner à la main dérive du
+      // code généré à chaque `add --overwrite` futur. Spec §11.4.
+      'import-x/order': 'off',
+      // `index.ts` réexporte le composant et son type de variants ; le composant importe ce
+      // type via `import type { XVariants } from '.'` : cycle uniquement au niveau des types,
+      // supprimé à la compilation. Pattern shadcn-vue standard (Badge, Button, Select). Spec
+      // §11.4.
+      'import-x/no-cycle': 'off',
+      // `Input.vue` type le composant HTML natif avec un type littéral à signature d'appel
+      // (`{ (): void }`) issu de la registry upstream ; le convertir en function type diverge
+      // du fichier généré. Spec §11.4.
+      '@typescript-eslint/prefer-function-type': 'off',
+      // Props `variant`/`size`/`class` des primitives : la valeur par défaut vit dans
+      // `class-variance-authority` (les `cva()` du fichier généré), pas dans `defineProps`.
+      // Spec §11.4.
+      'vue/require-default-prop': 'off',
     },
   },
 
