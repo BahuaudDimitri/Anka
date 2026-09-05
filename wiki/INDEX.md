@@ -10,3 +10,4 @@
 | Certificats et hôtel de vente des montures | certificats-et-hdv-montures | hypothese | moyenne | 2026-09-05 |
 | L'astuce « dragodindes contre parchemins » | astuce-parchemins | hypothese | moyenne | 2026-09-05 |
 | Les jauges d'une dragodinde | jauges | valide | haute | 2026-09-05 |
+| Modèle de données pour l'écran de suivi d'élevage | modele-donnees | hypothese | moyenne | 2026-09-05 |

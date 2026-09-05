@@ -13,3 +13,4 @@ La création d'une fiche s'écrit `· (création) → hypothese · sources initi
 2026-09-05 · capacites · hypothese → valide · 3 sources post-3.5 concordantes (Makinas, 6 capacités, 27/27/27/14/5 %, Kromakina 100 %) ; relu par le pilote sur le Guide de l'éleveur 2026 ; anciennes sources reléguées en « pré-3.5 »
 2026-09-05 · jauges · (création) → valide · 4 sources 2026 concordantes : 3 jauges à 20 000, zones de sérénité, énergie remplacée par expérience d'enclos, sexe du bébé aléatoire (la prémisse du brief « sérénité → sexe » était fausse)
 2026-09-05 · generations-et-couleurs · hypothese (inchangé) · révision post-alerte : formule 30 % + 0,15 %/niveau recoupée 3 fois, Optimakina +10 %, arbre limité aux grands-parents ; table couleur/génération toujours mono-source
+2026-09-05 · modele-donnees · (création) → hypothese · contrat wiki → écran SP3, bornes tirées de jauges/générations/capacités ; validé par la construction de l'écran
