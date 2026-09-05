@@ -21,6 +21,9 @@ sources:
   - url: https://www.dofuspourlesnoobs.com/les-dragodindes.html
     titre: Les Dragodindes (Dofus pour les Noobs)
     date: 2026-02-23
+  - url: https://dofus-portals.fr/quetes/naissance-d-une-vocation/
+    titre: "Quête « Naissance d'une vocation » : solution et étapes"
+    date: n.d.
 tags: [dragodinde, elevage, debutant, parcours]
 ---
 
@@ -111,7 +114,7 @@ cycles ([astuce parchemins](astuce-parchemins.md)).
 | Bébés par accouplement | 1 (2 avec la capacité Reproducteur) | Guide de l'éleveur (édition 2026) |
 | Génétons par accouplement, génération 1 | 1 | Guide de l'éleveur (édition 2026) ; Tuto élevage de dragodinde sur Dofus - guide complet de A à Z |
 | Niveau de personnage pour monter une dragodinde | 60 | Les Dragodindes (Dofus pour les Noobs) |
-| Quête « Naissance d'une vocation » : métier requis | Éleveur niveau 20 | Guide de l'éleveur (édition 2026) |
+| Quête « Naissance d'une vocation » : métier requis | Éleveur niveau 20 | Quête « Naissance d'une vocation » : solution et étapes |
 
 ## À challenger
 - **Un Extrait suffit-il ?** Les guides disent qu'un Extrait « remplit la jauge jusqu'à 40 % » et
