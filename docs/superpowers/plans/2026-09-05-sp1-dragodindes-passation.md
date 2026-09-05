@@ -13,8 +13,8 @@ pour reprendre. Le reste sert de référence.
 | SP3 | Écran de suivi élevage + parcours cochable | dépend de SP1 (`modele-donnees.md`) et SP2 | à faire |
 | SP4 | Analyse générale Dofus (progression, kamas) | même méthode que SP1 | à faire |
 
-**État git déclaré** : branche `feature/dofus-progression-gains`, SHA local `2f2df3a` = distant
-(`origin/feature/dofus-progression-gains`), arbre propre, 26 commits devant `main` (`03d4396`).
+**État git déclaré** : branche `feature/dofus-progression-gains`, SHA local = distant (voir `git rev-parse HEAD @{push}`, dernier connu `65318ff` + ce commit)
+(`origin/feature/dofus-progression-gains`), arbre propre, 28 commits devant `main` (`03d4396`).
 **PR non ouverte** au moment d'écrire : le joueur l'ouvre lui-même depuis son compte perso, lien
 https://github.com/BahuaudDimitri/Anka/pull/new/feature/dofus-progression-gains ; le corps de PR
 prêt est reproduit en §7.
