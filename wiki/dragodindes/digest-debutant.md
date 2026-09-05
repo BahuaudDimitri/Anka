@@ -43,7 +43,9 @@ Les six familles historiques (mangeoire, abreuvoir, baffeur, caresseur, foudroye
 existent désormais comme carburants, déclinés en cinq tailles (Minuscule à Gigantesque, qui fixent
 la durabilité de 1 000 à 5 000) et quatre paliers (Extrait à Élixir, qui fixent le niveau requis et
 le plafond de remplissage). On les achète en hôtel de vente, on les fabrique avec le métier, ou on
-les échange contre de la poussière d'élevage chez Adèle Vage.
+les échange contre de la poussière d'élevage chez Adèle Vage. Le palier plafonne la jauge de
+l'enclos, pas celle de la monture : un Extrait suffit à un débutant, quatre fois plus lentement
+qu'un Élixir (lecture d'une infographie du guide, à confirmer en jeu).
 
 ### 4. [La reproduction](reproduction.md)
 Deux dragodindes fécondes de sexes opposés en étable donnent un bébé, immédiatement, sans gestation.
