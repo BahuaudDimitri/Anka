@@ -678,6 +678,10 @@ export default tseslint.config(
         { element: 'table',    message: 'Utiliser <Table> de @/components/ui/table' },
       ],
       'vue/no-restricted-class': ['error', TAILWIND_RAW_COLOR],
+      // `Label` et `Input` (shadcn-vue) sont deux composants distincts, jamais imbriqués :
+      // le pairing accessible passe par `for`/`id`, pas par le nesting DOM que le défaut du
+      // plugin (`required: { every: ['nesting', 'id'] }`) exige (task 15).
+      'vuejs-accessibility/label-has-for': ['error', { required: 'id' }],
     },
   },
   {

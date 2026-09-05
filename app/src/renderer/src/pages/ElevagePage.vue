@@ -1,9 +1,24 @@
 <script setup lang="ts">
-const title = 'Élevage'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 </script>
 
 <template>
-  <section class="flex-1 p-8">
-    <h1 class="text-2xl font-semibold">{{ title }}</h1>
+  <section class="flex-1 overflow-auto p-8">
+    <Card class="max-w-xl">
+      <CardHeader>
+        <CardTitle>Suivi d'élevage</CardTitle>
+        <CardDescription>
+          L'écran de suivi (dragodindes, jauges, parcours cochable) arrive avec le sous-projet SP3.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Button as-child variant="secondary">
+          <RouterLink to="/wiki/parcours-debutant"
+            >Lire le parcours débutant en attendant</RouterLink
+          >
+        </Button>
+      </CardContent>
+    </Card>
   </section>
 </template>
