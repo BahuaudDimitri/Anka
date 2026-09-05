@@ -112,6 +112,14 @@ ni prix, ni durabilité, ni lieu d'obtention pour ces trois objets.
 
 ## Chiffres
 
+Lecture de l'infographie des jauges d'enclos du Guide de l'éleveur (édition 2026) : l'enclos a six jauges
+sur 100 000, une par famille de carburant. Le palier du carburant fixe jusqu'où monte la jauge d'enclos
+(Extrait 40 000, Philtre 70 000, Potion 90 000, Élixir 100 000), et la hauteur de la jauge d'enclos fixe
+le débit vers la monture : +10 points toutes les 10 secondes entre 0 et 40 000, +20 entre 40 000 et
+70 000, +30 entre 70 000 et 90 000, +40 au-dessus. Un Extrait suffit donc à remplir une jauge de monture
+(20 000), quatre fois moins vite qu'un Élixir. L'infographie affiche « 0/2 jauges activées » : deux
+jauges d'enclos actives au plus en même temps.
+
 | Objet / mesure | Jauge concernée | Effet / valeur | Durabilité | Source |
 |---|---|---|---|---|
 | Taille Minuscule (tous carburants) | — | — | 1 000 | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
@@ -119,12 +127,12 @@ ni prix, ni durabilité, ni lieu d'obtention pour ces trois objets.
 | Taille Normal/Standard | — | — | 3 000 | Guide de l'éleveur (édition 2026) ; Guide — Refonte de l'élevage |
 | Taille Grand | — | — | 4 000 | Guide de l'éleveur (édition 2026) ; Guide — Refonte de l'élevage |
 | Taille Gigantesque | — | — | 5 000 | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
-| Palier Extrait | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 40 % ; niveau 5 (taille Minuscule) à 45 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Palier Philtre | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 70 % ; niveau 55 (Minuscule) à 95 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Palier Potion | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 90 % ; niveau 105 (Minuscule) à 145 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Palier Élixir | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 100 % ; niveau 155 (Minuscule) à 195 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Consommation par tick (tier 1) | toutes | consomme 10 de carburant, la monture gagne 10 dans la jauge, toutes les 10 secondes | — | Guide de l'éleveur (édition 2026) |
-| Consommation par tick (tier 4) | toutes | consomme 40 de carburant, la monture gagne 40 dans la jauge, toutes les 10 secondes | — | Guide de l'éleveur (édition 2026) |
+| Palier Extrait | la jauge d'enclos de sa famille (six jauges d'enclos sur 100 000, une par famille) | remplit la jauge jusqu'à 40 % ; niveau 5 (taille Minuscule) à 45 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Philtre | la jauge d'enclos de sa famille (six jauges d'enclos sur 100 000, une par famille) | remplit la jauge jusqu'à 70 % ; niveau 55 (Minuscule) à 95 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Potion | la jauge d'enclos de sa famille (six jauges d'enclos sur 100 000, une par famille) | remplit la jauge jusqu'à 90 % ; niveau 105 (Minuscule) à 145 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Élixir | la jauge d'enclos de sa famille (six jauges d'enclos sur 100 000, une par famille) | remplit la jauge jusqu'à 100 % ; niveau 155 (Minuscule) à 195 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Débit palier 1 (jauge d'enclos entre 0 et 40 000) | toutes | consomme 10 de carburant, la monture gagne 10 dans la jauge, toutes les 10 secondes | — | Guide de l'éleveur (édition 2026), texte et infographie |
+| Débit palier 4 (jauge d'enclos entre 90 000 et 100 000) | toutes | consomme 40 de carburant, la monture gagne 40 dans la jauge, toutes les 10 secondes | — | Guide de l'éleveur (édition 2026), texte et infographie |
 | Conversion des anciens objets | — | 0,55 poussière d'élevage par point de durabilité restante (arrondi au supérieur) | — | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
 | Prix Gigantesque Extrait chez Adèle Vage | — | 50 poussière d'élevage | 5 000 | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
 | Prix Gigantesque Philtre chez Adèle Vage | — | 200 poussière d'élevage | 5 000 | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
@@ -133,11 +141,9 @@ ni prix, ni durabilité, ni lieu d'obtention pour ces trois objets.
 | Bonus Optimakina | — | +10 % de chance que l'enfant soit d'une génération supérieure | — | Guide complet de l'élevage sur DOFUS 3 |
 
 ## À challenger
-- Les plafonds de remplissage par palier (40/70/90/100 %) sont décrits par le Guide de l'éleveur pour
-  la jauge d'expérience de l'enclos (sur 100 000). Aucune source ouverte ne confirme qu'ils
-  s'appliquent à l'identique aux jauges de monture (endurance, maturité, amour, sur 20 000). Si un
-  Extrait ne suffit pas à mener ces jauges à 20 000, le parcours débutant doit être revu. À vérifier
-  en jeu.
+- Les plafonds par palier portent sur les jauges d'enclos, pas sur celles de la monture : lu sur
+  l'infographie du Guide de l'éleveur (édition 2026), pas dans son texte. Une seule source, à
+  confirmer en jeu, ainsi que la limite de deux jauges d'enclos actives à la fois.
 - Les valeurs de consommation par tick (10/20/30/40 toutes les 10 secondes selon le tier) ne
   viennent que d'une seule source ouverte (Guide de l'éleveur, édition 2026) : pas de deuxième page
   qui les recoupe explicitement avec les mêmes chiffres, même si les plafonds de jauge par palier

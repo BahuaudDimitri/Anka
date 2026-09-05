@@ -72,8 +72,8 @@ le jeu d'avant février 2026.
    - sérénité entre -2 000 et 2 000 : la **maturité** monte, carburant de famille Abreuvoir ;
    - sérénité entre 0 et 5 000 : l'**amour** monte, carburant de famille Dragofesse ;
    - pour déplacer la sérénité : Baffeur la fait baisser, Caresseur la fait monter.
-   Commencer par le palier Extrait, le seul accessible à bas niveau. Chaque jauge doit atteindre
-   20 000. Quand les trois y sont, la monture passe de « fertile » à « fécond(e) »
+   Commencer par le palier Extrait, le seul accessible à bas niveau : il suffit, il est juste plus
+   lent (voir « À challenger »). Chaque jauge doit atteindre 20 000. Quand les trois y sont, la monture passe de « fertile » à « fécond(e) »
    ([reproduction](reproduction.md)).
 4. **Soir 7 : accouplement.** Déplacer les deux montures fécondes dans l'étable, lancer
    l'accouplement. Le bébé naît immédiatement, un seul (deux si un parent a la capacité
@@ -117,15 +117,14 @@ cycles ([astuce parchemins](astuce-parchemins.md)).
 | Quête « Naissance d'une vocation » : métier requis | Éleveur niveau 20 | Quête « Naissance d'une vocation » : solution et étapes |
 
 ## À challenger
-- **Un Extrait suffit-il ?** Les guides disent qu'un Extrait « remplit la jauge jusqu'à 40 % » et
-  qu'il faut un Élixir pour 100 %, mais il n'est pas clair si ce plafond porte sur la jauge
-  d'expérience de l'enclos (sur 100 000) ou sur les jauges de la monture (sur 20 000). Si c'est la
-  monture, un débutant sans accès aux paliers supérieurs ne peut pas atteindre la fécondité et ce
-  parcours doit être revu. **À vérifier en jeu dès le soir 3.**
-- **Temps réel pour remplir une jauge.** Estimation du rédacteur, non sourcée : au débit du palier 1
-  (10 points toutes les 10 secondes, chiffre d'une seule source dans
-  [objets d'élevage](objets-d-elevage.md)), 20 000 points demandent environ 5 h 30 par jauge, soit
-  près de 17 h d'enclos par monture. Une semaine suffit si l'enclos tourne en continu, à confirmer.
+- **Un Extrait suffit, mais lentement.** L'infographie du Guide de l'éleveur (édition 2026) montre que
+  le palier du carburant plafonne la jauge de l'**enclos** (Extrait : 40 000 sur 100 000), et que la
+  monture gagne alors +10 points toutes les 10 secondes ; à ce débit, une jauge de monture (20 000)
+  prend environ 5 h 30. Lecture d'image, une seule source : **à confirmer en jeu dès le soir 3** en
+  regardant le débit affiché.
+- **Temps réel par monture.** Estimation du rédacteur : trois jauges à 5 h 30 chacune au palier 1,
+  soit près de 17 h d'enclos par monture, et l'infographie limite l'enclos à deux jauges actives à la
+  fois. Une semaine suffit si l'enclos tourne en continu, à confirmer.
 - **Comment on apprend le métier Éleveur** : aucune page ouverte ne nomme le PNJ ni le lieu exact.
 - **Capture d'une dragodinde sauvage** : non couverte par le wiki ; le parcours passe par l'achat.
 - **Coût de départ** : aucun chiffre 3.5 dans les sources. À remplir avec les prix observés du soir 1.

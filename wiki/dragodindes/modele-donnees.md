@@ -66,11 +66,12 @@ Règles de cohérence que l'écran doit faire respecter :
 |---|---|---|---|---|---|
 | nom | texte | libre (ex. « Enclos public n°1 ») | — | oui | elevage-vue-d-ensemble |
 | places | entier | 10 par enclos public d'après les guides | montures | oui | elevage-vue-d-ensemble |
-| experience_enclos | entier | 0 à 100 000 | points | non | jauges |
-| carburant_palier | énumération | Extrait, Philtre, Potion, Élixir | — | non | objets-d-elevage |
-| carburant_famille | énumération | Mangeoire, Abreuvoir, Baffeur, Caresseur, Foudroyeur, Dragofesse | — | non | objets-d-elevage |
-| carburant_taille | énumération | Minuscule, Petit, Normal, Grand, Gigantesque | — | non | objets-d-elevage |
-| carburant_durabilite_restante | entier | 0 à 5 000 (borne haute selon la taille : 1 000 à 5 000) | points | non | objets-d-elevage |
+| jauges_enclos | six entiers (Baffeur, Caresseur, Foudroyeur, Abreuvoir, Dragofesse, Mangeoire) | 0 à 100 000 chacune | points | non | jauges |
+| carburants_actifs | liste de 0 à 2 éléments {famille, palier, taille, durabilite_restante} | deux jauges d'enclos actives au plus (infographie du Guide de l'éleveur) | — | non | objets-d-elevage |
+| carburant_palier (par élément) | énumération | Extrait, Philtre, Potion, Élixir | — | non | objets-d-elevage |
+| carburant_famille (par élément) | énumération | Mangeoire, Abreuvoir, Baffeur, Caresseur, Foudroyeur, Dragofesse | — | non | objets-d-elevage |
+| carburant_taille (par élément) | énumération | Minuscule, Petit, Normal, Grand, Gigantesque | — | non | objets-d-elevage |
+| carburant_durabilite_restante (par élément) | entier | 0 à 5 000 (borne haute selon la taille : 1 000 à 5 000) | points | non | objets-d-elevage |
 
 ### Objet « Prix observé »
 
@@ -125,7 +126,7 @@ saisit ce qu'il voit à l'hôtel de vente des créatures.
   « en cours d'extraction »). À ajuster quand le joueur aura observé l'interface du jeu.
 - Le nombre de places par enclos (10) vient de deux guides mais son évolution avec le niveau du
   métier n'est pas claire (palier tous les 40 ou 50 niveaux selon la source).
-- L'objet « Enclos » suppose un seul carburant actif par enclos. Si le jeu permet d'en empiler
-  plusieurs, il faudra une liste.
+- L'objet « Enclos » retient deux carburants actifs au plus, d'après une infographie du Guide de
+  l'éleveur ; à confirmer sur l'interface du jeu.
 - Le solde de Génétons et de poussière est saisi à la main : à vérifier si le joueur veut vraiment
   le suivre dans l'app ou si le jeu l'affiche assez clairement.

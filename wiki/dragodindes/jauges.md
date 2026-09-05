@@ -131,6 +131,14 @@ devienne féconde, il faut monter au maximum les 3 jauges suivantes"). Avant la 
 fécondité demandait en plus un niveau minimum ("être au minimum level 5", dofastuces.fr), une
 condition que les sources 2026 ouvertes pour cette fiche ne reprennent pas explicitement.
 
+### Les jauges de l'enclos (lecture de l'infographie du Guide de l'éleveur)
+L'enclos lui-même porte six jauges sur 100 000, une par famille de carburant (Baffeur et Caresseur
+pour la sérénité, Foudroyeur pour l'endurance, Abreuvoir pour la maturité, Dragofesse pour l'amour,
+Mangeoire pour l'expérience). Leur hauteur fixe le débit vers la monture : +10 points toutes les
+10 secondes sous 40 000, +20 sous 70 000, +30 sous 90 000, +40 au-dessus. Deux jauges d'enclos au plus
+sont actives en même temps (« 0/2 jauges activées » sur l'interface). Voir
+[objets d'élevage](objets-d-elevage.md).
+
 ## Pièges fréquents
 
 - Confondre les seuils de l'ancien système (10 000 de maximum, 7 500 pour la fécondité, sérénité entre
@@ -159,6 +167,8 @@ condition que les sources 2026 ouvertes pour cette fiche ne reprennent pas expli
 | Amour / Endurance (ancien système, avant février 2026) | 0 | 10 000 | Seuil de fécondité : 7 500 minimum | Élevage de Dragodindes - Wiki Dofus |
 
 ## À challenger
+- Les six jauges d'enclos et la limite de deux jauges actives viennent d'une infographie du Guide de
+  l'éleveur (édition 2026), pas de son texte : une seule source, à confirmer en jeu.
 
 - Borne basse de la zone « amour » : 0 selon le Guide de l'éleveur, next-stage.fr et GUIDACTIK (3
   sources concordantes), 1 selon DofusElevage seul. Écart mineur, traité comme un désaccord isolé et
