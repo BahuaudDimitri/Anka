@@ -324,8 +324,11 @@ export default tseslint.config(
       'vitest/no-disabled-tests': 'error',
       'vitest/no-identical-title': 'error',
       'vitest/consistent-test-it': ['error', { fn: 'test' }],
+      // Les tests construisent volontairement des valeurs mal typées (JSON altérés, `unknown`
+      // passés aux schémas) : `any` et les affectations non sûres y sont l'outil, pas un défaut.
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      // Deux cas de test qui se ressemblent sont plus lisibles que factorisés. Spec §11.4.
       'sonarjs/no-identical-functions': 'off',
     },
   },
@@ -336,6 +339,8 @@ export default tseslint.config(
     languageOptions: { globals: globals.node },
     rules: {
       'import-x/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      // Les configs sont chargées par des outils qui injectent `__dirname` (Vite, electron-vite,
+      // vitest) : la règle confondrait cette injection avec du CommonJS. Spec §11.4.
       'unicorn/prefer-module': 'off',
     },
   },

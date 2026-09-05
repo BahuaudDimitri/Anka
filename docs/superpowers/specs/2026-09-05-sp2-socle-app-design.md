@@ -68,7 +68,8 @@ vérifiées par `npm view <pkg> peerDependencies` et **imposent** de ne pas pren
 | Hooks | `husky`, `lint-staged` | 9.x / 17.x | |
 | Node | local et CI | 24.x | electron-vite exige 20.19+ ou 22.12+ |
 
-Toutes les versions sont épinglées en `^` dans `package.json` et gelées par `package-lock.json` ;
+Toutes les versions sont épinglées en `^` dans `package.json` (sauf `typescript` en `~5.9`, plafond
+imposé par typescript-eslint) et gelées par `package-lock.json` ;
 Dependabot propose les montées.
 
 ## 4. Structure du dépôt
@@ -528,6 +529,13 @@ rapport :
     résultat du lint (ESLint résout les chemins relatifs depuis son cwd, identique à
     `eslint.config.mjs`). Pas de règle contournée, aucun code masqué : purement la taille de la
     ligne de commande.
+15. Relevé par la vérification adversariale de la phase A : quatre règles étaient `off` dans la
+    config initiale du plan sans commentaire ni entrée ici. Régularisées, pas rétablies : dans le
+    bloc **tests**, `@typescript-eslint/no-unsafe-assignment` et `@typescript-eslint/no-explicit-any`
+    (les tests construisent volontairement des valeurs mal typées pour les schémas) et
+    `sonarjs/no-identical-functions` (deux cas de test qui se ressemblent sont plus lisibles que
+    factorisés) ; dans le bloc **fichiers de config et scripts**, `unicorn/prefer-module` (les
+    configs sont chargées par des outils qui injectent `__dirname`).
 
 Deux corrections de squelette (tâche 1) au passage, remontées par le lint et corrigées dans le
 code plutôt que masquées : `electron.vite.config.ts` n'appelle plus `externalizeDepsPlugin()`
