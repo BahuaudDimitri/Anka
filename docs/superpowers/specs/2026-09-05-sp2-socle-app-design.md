@@ -536,6 +536,19 @@ rapport :
     `sonarjs/no-identical-functions` (deux cas de test qui se ressemblent sont plus lisibles que
     factorisés) ; dans le bloc **fichiers de config et scripts**, `unicorn/prefer-module` (les
     configs sont chargées par des outils qui injectent `__dirname`).
+16. Trou découvert à la tâche 10 (`json-store.test.ts`), non anticipé par le plan : le test
+    littéral du plan (chemins construits sur un dossier `mkdtemp`) déclenche
+    `security/detect-non-literal-fs-filename` sur `readdir`/`readFile`/`writeFile` (8 occurrences)
+    — la règle ne sait pas distinguer un chemin dynamique légitime (dossier temporaire de test)
+    d'une entrée non fiable. `--max-warnings 0` en fait un échec de `npm run verify`. Réglée dans
+    le bloc **tests** de `eslint.config.mjs` (`'security/detect-non-literal-fs-filename': 'off'`)
+    plutôt qu'en désactivation par fichier : ce pattern (temp dir → chemins non littéraux) va
+    revenir sur tous les futurs tests de store/IPC du processus main. Par ailleurs, deux erreurs
+    (pas des warnings) sur `json-store.ts`/`json-store.test.ts` ont été corrigées dans le code,
+    pas désactivées : `unicorn/consistent-class-member-order` (méthode privée `migrate` déplacée
+    avant les méthodes publiques `read`/`write`) et `unicorn/no-top-level-assignment-in-function`
+    (les deux `let dir`/`let store` top-level réassignés dans `beforeEach` regroupés en un seul
+    objet `ctx` dont on mute les propriétés).
 
 Deux corrections de squelette (tâche 1) au passage, remontées par le lint et corrigées dans le
 code plutôt que masquées : `electron.vite.config.ts` n'appelle plus `externalizeDepsPlugin()`

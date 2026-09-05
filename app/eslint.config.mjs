@@ -330,6 +330,10 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       // Deux cas de test qui se ressemblent sont plus lisibles que factorisés. Spec §11.4.
       'sonarjs/no-identical-functions': 'off',
+      // Les tests de store/IPC lisent/écrivent dans des dossiers temporaires créés par
+      // `mkdtemp` : le chemin n'est jamais littéral par construction, jamais reçu de
+      // l'extérieur. Spec §11.4.
+      'security/detect-non-literal-fs-filename': 'off',
     },
   },
 
