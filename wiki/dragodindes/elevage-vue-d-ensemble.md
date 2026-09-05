@@ -156,20 +156,24 @@ vérifier sur le terrain.
 | Jusqu'à 250 montures | Capacité annoncée de l'étable (non recoupée) | Guide de l'éleveur (édition 2026) |
 | Niveau 20 (métier Éleveur) et niveau 100 (personnage, recommandé) | Prérequis de la quête « Naissance d'une vocation » | Quête « Naissance d'une vocation » |
 | 2 457 000 XP et 28 752 kamas | Récompenses de la quête « Naissance d'une vocation » | Quête « Naissance d'une vocation » |
-| 7 500 / 10 000 en Amour et en Endurance, Maturité au maximum, niveau 5 minimum | Seuil de fécondité décrit par un guide se réclamant de « Dofus 3.0 » | Tuto élevage de Dragodinde dofus |
-| Jauges de 100 000 points, seuil de fécondité à 20 000 points sur chacune des trois jauges | Seuil de fécondité décrit par un guide explicitement daté de la mise à jour 3.5 | Tuto élevage de dragodinde... guide complet de A à Z |
-| 2 à 6 jours et demi | Durée de gestation annoncée | Tuto élevage de Dragodinde dofus |
+| Jauges de 100 000 points, seuil de fécondité à 20 000 points sur chacune des trois jauges | Seuil de fécondité du système actuel (3.5) | Tuto élevage de dragodinde... guide complet de A à Z |
+| 0,55 poussière d'élevage par point de durabilité restante (arrondi au supérieur) | Taux de conversion des anciens objets d'élevage en poussière d'élevage, à l'introduction de la 3.5 | Guide de l'éleveur (édition 2026) |
+| 6 types de carburants d'enclos, 4 niveaux de qualité | Structure de la nouvelle ressource qui remplace les objets d'élevage classiques | Guide de l'éleveur (édition 2026) ; Tuto élevage de dragodinde... guide complet de A à Z |
+| 7 500 / 10 000 en Amour et en Endurance, Maturité au maximum, niveau 5 minimum, fatigue sur 0-240 | Seuil de fécondité et jauge de fatigue de l'**ancien système** (pré-3.5), obsolètes depuis février 2026 — ne compte pas pour le statut valide | Tuto élevage de Dragodinde dofus |
+| 2 à 6 jours et demi | Durée de gestation annoncée par une source décrivant l'ancien système (pré-3.5), non recoupée pour la 3.5 | Tuto élevage de Dragodinde dofus |
 | Tous les 50 niveaux de métier | Rythme de déblocage des enclos selon une source isolée (contredite par deux autres, voir « À challenger ») | Guide complet de l'élevage sur DOFUS 3 |
 
 ## À challenger
 
-- **Seuil de fécondité contradictoire.** *Tuto élevage de Dragodinde dofus* (13 juin 2026, dit
-  travailler sur « Dofus 3.0 ») donne un seuil de 7 500/10 000 en Amour et Endurance ; *Tuto
-  élevage de dragodinde... guide complet de A à Z* (15 avril 2026, explicitement écrit après la
-  mise à jour 3.5) décrit des jauges sur 100 000 points avec un seuil de fécondité à 20 000. Les
-  deux se présentent comme du Dofus 3 mais semblent décrire deux échelles différentes ; il est
-  possible que la première source documente un système antérieur à la 3.5 sans le préciser. Fiche
-  laissée en `hypothese` sur ce point.
+- **Seuil de fécondité : résolu comme ancien vs nouveau système.** *Tuto élevage de Dragodinde
+  dofus* (13 juin 2026, dit travailler sur « Dofus 3.0 ») donne un seuil de 7 500/10 000 en Amour et
+  Endurance, avec une jauge de fatigue sur 0-240 ; or deux sources distinctes et concordantes
+  (*Guide de l'éleveur (édition 2026)* et *Tuto élevage de dragodinde... guide complet de A à Z*)
+  confirment textuellement que la fatigue/l'énergie ont été supprimées par la 3.5 et que les jauges
+  fonctionnent maintenant sur une échelle à 100 000 points. Je retiens donc que *Tuto élevage de
+  Dragodinde dofus*, malgré sa date de publication tardive (juin 2026), documente l'**ancien
+  système** resté en ligne sans mise à jour de l'article. Ses chiffres sont conservés dans le
+  tableau pour mémoire, mais étiquetés comme obsolètes et ne comptent pas pour le statut valide.
 - **Rythme de déblocage des enclos.** Deux sources concordantes (*Présentation de la mise à jour
   3.5* et, implicitement, *Guide de l'éleveur*) parlent d'un palier tous les 40 niveaux de métier ;
   une troisième (*Guide complet de l'élevage sur DOFUS 3*) parle de 50 niveaux. La fiche retient 40

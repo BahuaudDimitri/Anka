@@ -14,3 +14,4 @@ La création d'une fiche s'écrit `· (création) → hypothese · sources initi
 2026-09-05 · jauges · (création) → valide · 4 sources 2026 concordantes : 3 jauges à 20 000, zones de sérénité, énergie remplacée par expérience d'enclos, sexe du bébé aléatoire (la prémisse du brief « sérénité → sexe » était fausse)
 2026-09-05 · generations-et-couleurs · hypothese (inchangé) · révision post-alerte : formule 30 % + 0,15 %/niveau recoupée 3 fois, Optimakina +10 %, arbre limité aux grands-parents ; table couleur/génération toujours mono-source
 2026-09-05 · modele-donnees · (création) → hypothese · contrat wiki → écran SP3, bornes tirées de jauges/générations/capacités ; validé par la construction de l'écran
+2026-09-05 · elevage-vue-d-ensemble · hypothese (inchangé) · révision post-alerte : seuil 7 500/10 000 et gestation requalifiés « ancien système » ; incohérence à trancher en vérif : « jauges sur 100 000, seuil 20 000 » ici vs « max 20 000 par jauge » dans jauges
