@@ -32,7 +32,29 @@ jobs:
       - run: npm ci
       - run: npm run verify
       - run: npm run build
-      - name: Build et publication GitHub Releases
-        run: npx electron-builder --win --publish always
+      # Le publisher intégré d'electron-builder (--publish always) a été vu sortir en succès
+      # sans envoyer l'exe ni latest.yml (spec §8). On construit sans publier, puis gh publie
+      # et un contrôle fait échouer le run si un des trois artefacts manque.
+      - name: Build de l'installateur NSIS
+        run: npx electron-builder --win --publish never
+      - name: Publication de la release GitHub
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ls -la dist/Anka-Setup-*.exe dist/Anka-Setup-*.exe.blockmap dist/latest.yml
+          gh release create "$GITHUB_REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Anka $GITHUB_REF_NAME" \
+            --notes "Installateur Windows (NSIS). L'application installée se met à jour automatiquement depuis cette page." \
+            --latest \
+            dist/Anka-Setup-*.exe dist/Anka-Setup-*.exe.blockmap dist/latest.yml
+      - name: Contrôle des artefacts publiés
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --json isDraft,assets \
+            --jq '"draft=\(.isDraft)", (.assets[] | .name)' | tee release-assets.txt
+          grep -qx 'draft=false' release-assets.txt
+          grep -q '\.exe$' release-assets.txt
+          grep -q '\.exe\.blockmap$' release-assets.txt
+          grep -qx 'latest.yml' release-assets.txt
