@@ -18,6 +18,9 @@ sources:
   - url: https://guidactik.com/dofus/guide-complet-de-lelevage-sur-dofus-3/
     titre: Guide complet de l'élevage sur DOFUS 3
     date: 2026-03
+  - url: https://www.dofuspourlesnoobs.com/les-dragodindes.html
+    titre: Les Dragodindes (Dofus pour les Noobs)
+    date: 2026-02-23
 tags: [dragodinde, elevage, debutant, parcours]
 ---
 
@@ -107,7 +110,7 @@ cycles ([astuce parchemins](astuce-parchemins.md)).
 | Reproductions par dragodinde | 1, puis stérile | Guide de l'éleveur (édition 2026) |
 | Bébés par accouplement | 1 (2 avec la capacité Reproducteur) | Guide de l'éleveur (édition 2026) |
 | Génétons par accouplement, génération 1 | 1 | Guide de l'éleveur (édition 2026) ; Tuto élevage de dragodinde sur Dofus - guide complet de A à Z |
-| Niveau de personnage pour monter une dragodinde | 60 | Guide de l'éleveur (édition 2026) |
+| Niveau de personnage pour monter une dragodinde | 60 | Les Dragodindes (Dofus pour les Noobs) |
 | Quête « Naissance d'une vocation » : métier requis | Éleveur niveau 20 | Guide de l'éleveur (édition 2026) |
 
 ## À challenger

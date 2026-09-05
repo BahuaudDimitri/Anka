@@ -15,6 +15,9 @@ sources:
   - url: https://guidactik.com/dofus/guide-complet-de-lelevage-sur-dofus-3/
     titre: Guide complet de l'élevage sur DOFUS 3
     date: 2026-03
+  - url: https://www.dofuspourlesnoobs.com/les-dragodindes.html
+    titre: Les Dragodindes (Dofus pour les Noobs)
+    date: 2026-02-23
 tags: [dragodinde, modele, sp3]
 ---
 
@@ -115,7 +118,7 @@ saisit ce qu'il voit à l'hôtel de vente des créatures.
 | Capacités maximum par dragodinde | 2 | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z |
 | Places par enclos public | 10 | Guide complet de l'élevage sur DOFUS 3 |
 | Durabilité d'un carburant selon la taille | 1 000 à 5 000 | Guide de l'éleveur (édition 2026) |
-| Niveau minimum pour équiper une dragodinde | 60 | Guide de l'éleveur (édition 2026) |
+| Niveau minimum pour équiper une dragodinde | 60 | Les Dragodindes (Dofus pour les Noobs) |
 
 ## À challenger
 - Les valeurs de `etat` sont une proposition : le jeu distingue peut-être d'autres états (par exemple

@@ -40,7 +40,7 @@ tags: [dragodinde, elevage, debutant]
 
 L'élevage consiste à faire grandir une dragodinde dans un enclos jusqu'à la rendre « féconde »,
 puis à l'accoupler pour obtenir des bébés que l'on garde ou que l'on revend. Depuis la mise à jour
-3.5 (sortie le 3 mars 2026), l'élevage est devenu un métier à part entière et a été profondément
+3.5 (sortie le 28 février 2026), l'élevage est devenu un métier à part entière et a été profondément
 refondu : les anciens enclos privés ont disparu, remboursés à leur prix de base, et tout passe
 désormais par des enclos publics liés au niveau du métier Éleveur ; les anciens objets d'élevage
 qu'on plaçait ou fabriquait ont eux aussi disparu, remplacés par des « carburants d'enclos » achetés
@@ -57,7 +57,7 @@ physiques, une jauge d'énergie ou de fatigue décrit l'ancien système, antéri
 
 ### Où on élève
 
-**Enclos privés (n'existent plus depuis la 3.5).** Avant la mise à jour du 3 mars 2026, on pouvait
+**Enclos privés (n'existent plus depuis la 3.5).** Avant la mise à jour du 28 février 2026, on pouvait
 acheter un enclos privé, personnalisable et plus rapide, mais coûteux. La mise à jour 3.5 les a
 supprimés : « les enclos privés disparaissent ainsi que le système de certificats » (*Résumé de la
 mise à jour 3.5 de DOFUS*), et le prix de base de l'enclos a été remboursé aux joueurs qui en
@@ -126,8 +126,9 @@ vérifier sur le terrain.
    (édition 2026)* pour les carburants).
 3. **Passage en étable** : une fois la dragodinde féconde, la déplacer dans l'étable avec un
    partenaire fécond du même type et de sexe opposé, pour l'accouplement.
-4. **Gestation et mise bas** : attendre la gestation, puis récupérer le ou les bébés nés dans
-   l'étable (durée de gestation disputée entre les sources, voir « À challenger »).
+4. **Naissance immédiate** : le bébé naît au moment de l'accouplement, sans gestation (un seul
+   bébé, deux avec la capacité Reproducteur) ; les deux parents deviennent stériles (*Guide de
+   l'éleveur (édition 2026)*, voir [reproduction](reproduction.md)).
 5. **Revente ou réinvestissement** : vendre le bébé au marché aux bestiaux ou à un autre joueur,
    ou le conserver pour l'entraîner à son tour.
 
@@ -156,12 +157,12 @@ vérifier sur le terrain.
 | Jusqu'à 250 montures | Capacité annoncée de l'étable (non recoupée) | Guide de l'éleveur (édition 2026) |
 | Niveau 20 (métier Éleveur) et niveau 100 (personnage, recommandé) | Prérequis de la quête « Naissance d'une vocation » | Quête « Naissance d'une vocation » |
 | 2 457 000 XP et 28 752 kamas | Récompenses de la quête « Naissance d'une vocation » | Quête « Naissance d'une vocation » |
-| Jauges de 100 000 points, seuil de fécondité à 20 000 points sur chacune des trois jauges | Seuil de fécondité du système actuel (3.5) | Tuto élevage de dragodinde... guide complet de A à Z |
+| 20 000 points sur chacune des trois jauges de monture (endurance, maturité, amour) ; 100 000 points pour la jauge d'expérience de l'enclos, distincte | Seuil de fécondité du système actuel (3.5) | Guide de l'éleveur (édition 2026) ; Tuto élevage de dragodinde... guide complet de A à Z |
 | 0,55 poussière d'élevage par point de durabilité restante (arrondi au supérieur) | Taux de conversion des anciens objets d'élevage en poussière d'élevage, à l'introduction de la 3.5 | Guide de l'éleveur (édition 2026) |
 | 6 types de carburants d'enclos, 4 niveaux de qualité | Structure de la nouvelle ressource qui remplace les objets d'élevage classiques | Guide de l'éleveur (édition 2026) ; Tuto élevage de dragodinde... guide complet de A à Z |
 | 7 500 / 10 000 en Amour et en Endurance, Maturité au maximum, niveau 5 minimum, fatigue sur 0-240 | Seuil de fécondité et jauge de fatigue de l'**ancien système** (pré-3.5), obsolètes depuis février 2026 — ne compte pas pour le statut valide | Tuto élevage de Dragodinde dofus |
 | 2 à 6 jours et demi | Durée de gestation annoncée par une source décrivant l'ancien système (pré-3.5), non recoupée pour la 3.5 | Tuto élevage de Dragodinde dofus |
-| Tous les 50 niveaux de métier | Rythme de déblocage des enclos selon une source isolée (contredite par deux autres, voir « À challenger ») | Guide complet de l'élevage sur DOFUS 3 |
+| Tous les 50 niveaux de métier | Rythme de déblocage des enclos selon une source isolée et incohérente en interne ; la fiche retient 40 (deux sources explicites) | Guide complet de l'élevage sur DOFUS 3 |
 
 ## À challenger
 

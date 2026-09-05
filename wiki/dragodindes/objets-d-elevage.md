@@ -48,8 +48,9 @@ d'expérience de monture, les potions d'enclos de guildes et les filets de captu
 et dofuselevage.fr confirme que « les anciens objets d'élevage seront automatiquement convertis en
 Poussière d'enclos » et que « les objets d'élevage sont remplacés par des carburants d'enclos ». Le
 site next-stage.fr, à jour d'avril 2026, décrit le même mécanisme de conversion des objets restants
-en poussière d'élevage. Le nom officiel du type d'objet, confirmé par l'API DofusDude, est
-« Carburant d'enclos ».
+en poussière d'élevage. L'API DofusDude, interrogée sur le mot « élevage », renvoie la « Poussière
+d'élevage » et des prototypes de carburants, mais pas de type d'objet nommé « Carburant d'enclos » :
+ce nom est celui des guides, pas un libellé confirmé par l'API.
 
 ### Mangeoire (jauge d'expérience)
 Fait monter la jauge d'**expérience** de l'enclos ; remplace l'ancienne mécanique d'énergie,
@@ -118,10 +119,10 @@ ni prix, ni durabilité, ni lieu d'obtention pour ces trois objets.
 | Taille Normal/Standard | — | — | 3 000 | Guide de l'éleveur (édition 2026) ; Guide — Refonte de l'élevage |
 | Taille Grand | — | — | 4 000 | Guide de l'éleveur (édition 2026) ; Guide — Refonte de l'élevage |
 | Taille Gigantesque | — | — | 5 000 | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
-| Palier Extrait | toutes | remplit la jauge jusqu'à 40 % ; niveau 5 (taille Minuscule) à 45 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Palier Philtre | toutes | remplit la jauge jusqu'à 70 % ; niveau 55 (Minuscule) à 95 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Palier Potion | toutes | remplit la jauge jusqu'à 90 % ; niveau 105 (Minuscule) à 145 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
-| Palier Élixir | toutes | remplit la jauge jusqu'à 100 % ; niveau 155 (Minuscule) à 195 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Extrait | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 40 % ; niveau 5 (taille Minuscule) à 45 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Philtre | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 70 % ; niveau 55 (Minuscule) à 95 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Potion | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 90 % ; niveau 105 (Minuscule) à 145 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
+| Palier Élixir | expérience d'enclos (extension aux jauges de monture non confirmée) | remplit la jauge jusqu'à 100 % ; niveau 155 (Minuscule) à 195 (Gigantesque) | — | Guide de l'éleveur (édition 2026) ; DofusDude API - recherche d'items ressources |
 | Consommation par tick (tier 1) | toutes | consomme 10 de carburant, la monture gagne 10 dans la jauge, toutes les 10 secondes | — | Guide de l'éleveur (édition 2026) |
 | Consommation par tick (tier 4) | toutes | consomme 40 de carburant, la monture gagne 40 dans la jauge, toutes les 10 secondes | — | Guide de l'éleveur (édition 2026) |
 | Conversion des anciens objets | — | 0,55 poussière d'élevage par point de durabilité restante (arrondi au supérieur) | — | Tuto élevage de dragodinde sur Dofus - guide complet de A à Z ; Guide de l'éleveur (édition 2026) |
@@ -132,6 +133,11 @@ ni prix, ni durabilité, ni lieu d'obtention pour ces trois objets.
 | Bonus Optimakina | — | +10 % de chance que l'enfant soit d'une génération supérieure | — | Guide complet de l'élevage sur DOFUS 3 |
 
 ## À challenger
+- Les plafonds de remplissage par palier (40/70/90/100 %) sont décrits par le Guide de l'éleveur pour
+  la jauge d'expérience de l'enclos (sur 100 000). Aucune source ouverte ne confirme qu'ils
+  s'appliquent à l'identique aux jauges de monture (endurance, maturité, amour, sur 20 000). Si un
+  Extrait ne suffit pas à mener ces jauges à 20 000, le parcours débutant doit être revu. À vérifier
+  en jeu.
 - Les valeurs de consommation par tick (10/20/30/40 toutes les 10 secondes selon le tier) ne
   viennent que d'une seule source ouverte (Guide de l'éleveur, édition 2026) : pas de deuxième page
   qui les recoupe explicitement avec les mêmes chiffres, même si les plafonds de jauge par palier

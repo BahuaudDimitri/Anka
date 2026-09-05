@@ -18,3 +18,7 @@ La création d'une fiche s'écrit `· (création) → hypothese · sources initi
 2026-09-05 · parcours-debutant · (création) → hypothese · construit sur les fiches 3.5 validées ; doute majeur : un Extrait suffit-il à mener les jauges de monture à 20 000 (à vérifier en jeu)
 2026-09-05 · rentabilite-multi-compte · (création) → hypothese · première version refusée (chiffres pré-3.5 présentés comme actuels) ; refaite sur les mécaniques 3.5 avec modèle de coût à inconnues nommées ; aucun prix post-3.5 trouvé, 4 fils du forum officiel en 403
 2026-09-05 · digest-debutant · (création) → hypothese · condense les En bref des 10 fiches dans l'ordre de lecture débutant ; « À challenger » à remplir par le joueur
+2026-09-05 · elevage-vue-d-ensemble · hypothese (inchangé) · corrections après vérif adversariale : date 3.5 = 28/02/2026, jauges de monture 20 000 vs expérience d'enclos 100 000, naissance immédiate (plus de gestation), palier d'enclos tranché à 40 niveaux
+2026-09-05 · objets-d-elevage · valide (inchangé) · vérif adversariale : phrase « nom officiel confirmé par l'API DofusDude » retirée (l'API ne le dit pas) ; plafonds 40/70/90/100 % rattachés à la jauge d'enclos, extension aux jauges de monture marquée non confirmée
+2026-09-05 · parcours-debutant, modele-donnees · hypothese (inchangé) · vérif adversariale : « niveau 60 » re-sourcé vers Les Dragodindes (Dofus pour les Noobs), le Guide de l'éleveur ne le dit pas
+2026-09-05 · astuce-parchemins · hypothese (inchangé) · vérif adversariale : date papycha précisée (2026-04-17)

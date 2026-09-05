@@ -14,7 +14,7 @@ sources:
     date: inconnue (commentaires 2014-2018)
   - url: https://papycha.fr/guide-les-parchemins-et-consommables-de-caracteristiques/
     titre: Guide - Les parchemins et consommables de caractéristiques
-    date: inconnue
+    date: 2026-04-17
   - url: https://wiki-dofus.eu/w/Garde_Montay
     titre: Garde Montay
     date: dernière modif 2010-10-28
