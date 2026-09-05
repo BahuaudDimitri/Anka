@@ -125,3 +125,49 @@ car le modèle de données de l'écran de suivi dépend de la compréhension du 
 - Chaque module ajouté réutilise le même format de fiche et le même stockage local.
 - Rien n'a coûté d'argent, rien n'enfreint les conditions d'utilisation de Dofus ni les licences
   des sources.
+
+## 9. Qualité de code et garde-fous (contrainte pour SP2 et suivants)
+
+Ajouté le 2026-09-05 à la demande du joueur : le code doit rester homogène et dans les bonnes
+pratiques **par des règles outillées**, pas par discipline. Tout ce qui suit est gratuit.
+
+### Design system : shadcn-vue obligatoire, imposé par le linter
+
+- Toute UI passe par les composants shadcn-vue installés dans `app/src/components/ui/`.
+- **Interdit dans les `.vue` hors `components/ui/`** : les balises natives `<button>`, `<input>`,
+  `<select>`, `<textarea>`, `<dialog>`, `<table>`. Règle `vue/no-restricted-html-elements`
+  (eslint-plugin-vue) avec un message qui nomme le composant shadcn à utiliser à la place.
+- **Interdit** : les classes Tailwind de couleur brute (`bg-red-500`, `text-gray-700`, etc.).
+  Seuls les tokens sémantiques du thème shadcn sont permis (`bg-primary`,
+  `text-muted-foreground`, `border-border`...). Règle `vue/no-restricted-class` avec un motif
+  regex sur la palette Tailwind.
+- **Interdit** : importer une autre bibliothèque UI. Règle `no-restricted-imports`.
+- Les composants shadcn-vue eux-mêmes (`components/ui/`) sont exemptés de ces règles : c'est là
+  que les balises natives ont le droit d'exister.
+
+### Linters et formatage
+
+| Outil | Rôle |
+|---|---|
+| ESLint 9 (flat config) + eslint-plugin-vue + typescript-eslint | règles de code et règles design system ci-dessus |
+| Prettier | formatage ; retenu plutôt que Biome pour son support complet des fichiers `.vue` |
+| vue-tsc | typecheck strict des SFC |
+| Vitest | tests unitaires |
+| husky + lint-staged | lint + format des fichiers touchés avant chaque commit |
+
+Une seule commande composite `npm run verify` enchaîne lint, typecheck et tests. Elle est le
+gate unique en local et en CI.
+
+### CI : GitHub Actions (gratuit sur repo public)
+
+- **Sur chaque PR et push** : `npm ci`, `npm run verify`, build Electron sans publication. Un
+  échec bloque le merge (branch protection sur `main`).
+- **Sur un tag `v*`** : build Windows + publication de la release GitHub avec les artefacts
+  `.exe` et le fichier `latest.yml` que lit electron-updater.
+- **Renouvellement des dépendances** : Dependabot hebdomadaire, groupé.
+
+### Ce que le spec SP2 devra détailler
+
+La liste exacte des règles ESLint avec leur configuration, le contenu du workflow, la protection
+de branche, et un test qui prouve que les règles design system cassent bien (un `.vue` avec un
+`<button>` natif doit faire échouer `npm run lint`).
