@@ -1,0 +1,11 @@
+/**
+@type {import('prettier').Config}
+*/
+export default {
+  semi: false,
+  singleQuote: true,
+  printWidth: 100,
+  trailingComma: 'all',
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindStylesheet: './src/renderer/src/assets/main.css',
+}

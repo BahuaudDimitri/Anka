@@ -1,8 +1,20 @@
 # Anka
 
-Outil compagnon personnel pour Dofus 3 : une base de connaissance en markdown (le « wiki ») et,
-à venir, une application Windows qui la rend et propose des écrans de suivi (élevage de
-dragodindes, prix observés, progression).
+Outil compagnon personnel pour Dofus 3 : une base de connaissance en markdown (le « wiki ») et une
+application Windows qui la rend et proposera des écrans de suivi (élevage de dragodindes, prix
+observés, progression).
+
+## L'application
+
+Installateur Windows dans les [releases GitHub](https://github.com/BahuaudDimitri/Anka/releases) :
+télécharger `Anka-Setup-<version>.exe`, l'exécuter. Windows affiche un avertissement SmartScreen
+(« éditeur inconnu ») parce que l'installateur n'est pas signé : « Informations complémentaires »
+puis « Exécuter quand même ». L'application vérifie les mises à jour au démarrage et les installe à
+la fermeture.
+
+Développement : `cd app && npm install && npm run dev`. Gate unique : `npm run verify` (lint,
+format, typecheck, tests). Installateur local : `npm run dist`. Le code est dans `app/`, la stack et
+les règles dans `docs/superpowers/specs/2026-09-05-sp2-socle-app-design.md`.
 
 Le cadrage complet est dans `docs/superpowers/specs/2026-09-05-vision-outil-dofus-design.md`.
 
