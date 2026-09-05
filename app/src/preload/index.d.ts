@@ -1,8 +1,8 @@
-import type { AnkaApiBootstrap } from './index'
+import type { AnkaApi } from '../shared/ipc'
 
 declare global {
   interface Window {
-    anka: AnkaApiBootstrap
+    anka: AnkaApi
   }
 }
 

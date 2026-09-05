@@ -2,40 +2,30 @@ import { join } from 'node:path'
 
 import { app, BrowserWindow } from 'electron'
 
-function createWindow(): BrowserWindow {
-  const win = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    minWidth: 900,
-    minHeight: 600,
-    show: false,
-    webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
-      sandbox: true,
-      contextIsolation: true,
-      nodeIntegration: false,
-    },
+import { registerIpc } from './ipc'
+import { createStores } from './store'
+import { createUpdater } from './updater'
+import { createMainWindow } from './window'
+
+async function start(): Promise<void> {
+  const stores = createStores(join(app.getPath('userData'), 'data'))
+  const updater = createUpdater(() => BrowserWindow.getAllWindows()[0])
+  registerIpc(stores, updater)
+  await createMainWindow(stores)
+  updater.scheduleStartupCheck()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) void createMainWindow(stores)
   })
-  win.on('ready-to-show', () => {
-    win.show()
-  })
-  const devUrl = process.env.ELECTRON_RENDERER_URL
-  if (devUrl !== undefined && !app.isPackaged) {
-    void win.loadURL(devUrl)
-  } else {
-    void win.loadFile(join(__dirname, '../renderer/index.html'))
-  }
-  return win
 }
 
-void app.whenReady().then(() => {
-  createWindow()
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
-    }
+void app
+  .whenReady()
+  .then(start)
+  .catch((error: unknown) => {
+    console.error('Démarrage impossible :', error)
+    app.quit()
   })
-})
 
 app.on('window-all-closed', () => {
   app.quit()
