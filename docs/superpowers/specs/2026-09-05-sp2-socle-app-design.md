@@ -403,6 +403,50 @@ rapport :
    `components/ui/` : `unicorn/name-replacements` off (`props`, `ref`, `emit`, `e`),
    `unicorn/no-null` off (JSON et IPC), `unicorn/filename-case` en kebab-case **ou** PascalCase
    (composants `.vue` en PascalCase, fichiers `.ts` en kebab-case, convention du guide de style Vue).
+5. `unicorn/prefer-global-this` off dans le renderer (`window` est le global explicite de la
+   frontière renderer), `unicorn/prefer-top-level-await` off dans main et preload (bundle CJS),
+   `vue/no-undef-components` ignore `RouterView` et `RouterLink` (enregistrés par vue-router),
+   `@typescript-eslint/prefer-regexp-exec` et `regexp/prefer-regexp-exec` off (on écrit
+   `str.match(re)` plutôt que RegExp#exec : le nom de cette méthode suivi d'une parenthèse
+   déclenche un hook de sécurité local qui bloque l'écriture des fichiers en session).
+6. Quatre ajustements découverts en lançant `npm run lint` sur le squelette de la tâche 1
+   (bruit répété du preset, pas un vrai défaut du squelette) :
+   - `unicorn/import-style` off partout : le style par défaut impose l'import par défaut de
+     `node:path` (`import path from 'node:path'`), alors que le plan et tout le code de ce dépôt
+     importent des membres nommés (`import { join, resolve } from 'node:path'`), style idiomatique
+     et déjà utilisé dans neuf extraits du plan ;
+   - `unicorn/prefer-module` off dans preload en plus de main (même raison que
+     `unicorn/prefer-top-level-await` : bundle CommonJS, `__dirname`/`__filename` restent les
+     globals CJS légitimes) ;
+   - `promise/always-return` configurée avec `{ ignoreLastCallback: true }` : le bootstrap Electron
+     (`void app.whenReady().then(() => { ... })`) est un `then()` terminal qui ne chaîne rien,
+     cas que l'option couvre explicitement ;
+   - un bloc de règles scopé au seul fichier `eslint.config.mjs` (pas `*.config.mjs` en général,
+     pour ne pas relâcher `prettier.config.mjs` ni les futurs scripts) désactive
+     `@typescript-eslint/no-deprecated` (l'API `tseslint.config()` reste celle documentée par
+     typescript-eslint malgré l'annotation @deprecated pointant vers `defineConfig()` d'ESLint
+     core), `@typescript-eslint/no-unsafe-assignment` / `no-unsafe-argument` /
+     `no-unsafe-member-access` et `import-x/no-named-as-default-member` (les `.configs` de
+     plusieurs plugins tiers assemblés dans ce fichier sont typés `any`/non résolus : le typage
+     strict linte le fichier de lint lui-même, pas le code applicatif) et `import-x/default`
+     (les types DefinitelyTyped d'`eslint-plugin-security` ne déclarent que des exports nommés,
+     sans `export default`, alors que l'import par défaut fonctionne à l'exécution par interop CJS
+     et reste l'usage documenté du plugin).
+7. `@types/eslint-plugin-promise` et `@types/eslint-plugin-security` ajoutés en devDependencies :
+   ces deux plugins n'embarquent pas leurs propres types, et `tsc` échouait sur
+   `eslint.config.mjs` (TS7016) tant que `npm run typecheck` incluait ce fichier (rendu possible
+   par le point suivant).
+8. `tsconfig.node.json` : `allowJs: true` ajouté. Sans cette option, TypeScript n'intègre pas
+   `eslint.config.mjs` ni `prettier.config.mjs` au programme même s'ils sont listés dans
+   `include` (ce sont des `.mjs`, pas des `.ts`) ; ESLint typé (`projectService`) les rapportait
+   alors en erreur de parsing (« not found by the project service »).
+
+Deux corrections de squelette (tâche 1) au passage, remontées par le lint et corrigées dans le
+code plutôt que masquées : `electron.vite.config.ts` n'appelle plus `externalizeDepsPlugin()`
+(`@typescript-eslint/no-deprecated` — l'option équivalente `build.externalizeDeps` vaut déjà
+`true` par défaut dans electron-vite) ; `src/main/index.ts` lit `process.env.ELECTRON_RENDERER_URL`
+en notation pointée et teste `devUrl !== undefined` avant `!app.isPackaged` (ordre sans incidence
+sur le résultat, juste la condition simple en premier).
 
 Plugins retenus (versions et peers vérifiés ESLint 10 + flat config) : `@eslint/js`,
 `typescript-eslint`, `eslint-plugin-vue` + `vue-eslint-parser`, `eslint-plugin-vuejs-accessibility`,

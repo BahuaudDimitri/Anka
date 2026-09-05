@@ -1,0 +1,4 @@
+/* Placeholder minimal : la tâche 2 (prettier-plugin-tailwindcss v4) exige que
+   `tailwindStylesheet` (prettier.config.mjs) pointe vers un fichier existant.
+   La tâche 5 remplace ce contenu par les tokens shadcn-vue et @theme complets. */
+@import 'tailwindcss';

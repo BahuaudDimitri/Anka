@@ -2,19 +2,19 @@ import { resolve } from 'node:path'
 
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
-import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+import { defineConfig } from 'electron-vite'
 
 const appRoot = __dirname
 const repoRoot = resolve(appRoot, '..')
 const shared = resolve(appRoot, 'src/shared')
 
 export default defineConfig({
+  // `build.externalizeDeps` vaut `true` par défaut : externalizeDepsPlugin() est déprécié
+  // et redondant (electron-vite, @typescript-eslint/no-deprecated).
   main: {
-    plugins: [externalizeDepsPlugin()],
     resolve: { alias: { '@shared': shared } },
   },
   preload: {
-    plugins: [externalizeDepsPlugin()],
     resolve: { alias: { '@shared': shared } },
   },
   renderer: {

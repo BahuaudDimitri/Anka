@@ -19,8 +19,8 @@ function createWindow(): BrowserWindow {
   win.on('ready-to-show', () => {
     win.show()
   })
-  const devUrl = process.env['ELECTRON_RENDERER_URL']
-  if (!app.isPackaged && devUrl !== undefined) {
+  const devUrl = process.env.ELECTRON_RENDERER_URL
+  if (devUrl !== undefined && !app.isPackaged) {
     void win.loadURL(devUrl)
   } else {
     void win.loadFile(join(__dirname, '../renderer/index.html'))

@@ -7,8 +7,13 @@
   "author": "Dimitri Bahuaud",
   "license": "MIT",
   "homepage": "https://github.com/BahuaudDimitri/Anka",
-  "repository": { "type": "git", "url": "https://github.com/BahuaudDimitri/Anka.git" },
-  "engines": { "node": ">=24" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BahuaudDimitri/Anka.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
@@ -29,6 +34,8 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/eslint-plugin-promise": "^7.3.0",
+    "@types/eslint-plugin-security": "^3.0.1",
     "@types/markdown-it": "^14.2.0",
     "@types/node": "^24.0.0",
     "@vitejs/plugin-vue": "^6.0.8",
@@ -78,7 +85,12 @@
     "zod": "^4.5.4"
   },
   "lint-staged": {
-    "*.{ts,vue,mjs,js}": ["eslint --fix --max-warnings 0", "prettier --write"],
-    "*.{json,yml,yaml,css,md}": ["prettier --write"]
+    "*.{ts,vue,mjs,js}": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write"
+    ],
+    "*.{json,yml,yaml,css,md}": [
+      "prettier --write"
+    ]
   }
 }
