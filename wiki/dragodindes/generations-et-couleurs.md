@@ -203,19 +203,29 @@ Autres chiffres relevés :
 
 - Le tableau complet couleur-par-génération repose sur une seule source datée Dofus 3.5 (Guidactik,
   22/02/2026) ; aucune autre page ouverte ne confirme couleur par couleur cette répartition, malgré
-  une concordance de structure générale avec les autres guides. C'est la raison principale pour
-  laquelle le statut reste `hypothese` plutôt que `valide`.
-- Le niveau requis de 60 n'est documenté que par une seule page (Dofus pour les Noobs) et présenté
-  comme uniforme pour toutes les générations : à vérifier en jeu si une génération plus haute
-  demande davantage.
-- La formule de probabilité (30 % de base + 0,15 %/niveau, jusqu'à 90 %) ne vient que de next-stage.fr
-  et le site lui-même qualifie ces chiffres d'indicatifs plutôt que d'officiels.
-- Le barème de poids d'arbre généalogique (10/6/3/1) provient d'une page documentant la version 2.16
-  de Dofus (Dofus 2), pas Dofus 3.5 : le mécanisme général semble stable dans le temps mais les
-  chiffres exacts ne sont pas confirmés pour Dofus 3.
-- Le croisement 45 %/45 %/10 % de Gambin.co contredit implicitement la logique à 30 %/90 % décrite
-  par next-stage.fr (les deux ne parlent pas exactement du même type de croisement — race pure contre
-  génération cible — mais aucune source ne réconcilie clairement les deux mécaniques).
+  une concordance de structure générale avec les autres guides — y compris les guides post-refonte
+  (le Guide de l'éleveur de Dofus pour les Noobs cite en passant les dragodindes Pourpre, Émeraude,
+  Ivoire et Turquoise, ce qui recoupe partiellement le tableau sans le confirmer couleur par couleur
+  pour toutes les générations). C'est la raison principale pour laquelle le statut reste `hypothese`
+  plutôt que `valide` : le cœur de la fiche (la table couleurs/générations) n'atteint pas la barre des
+  deux sources concordantes, même si la mécanique de croisement autour est maintenant bien recoupée.
+- La formule de probabilité post-3.5 (30 % de base + 0,15 %/niveau, jusqu'à 90 %, +10 % avec
+  Optimakina) est en revanche recoupée par trois sources concordantes datées de la fenêtre de refonte
+  (next-stage.fr 15/04, Dofus pour les Noobs 27/02-02/03, DofusElevage.fr) : c'est la partie la plus
+  solide de la fiche.
+- Le niveau requis de 60 pour équiper une dragodinde n'est documenté que par une seule page (Dofus
+  pour les Noobs) et présenté comme uniforme pour toutes les générations : à vérifier en jeu si une
+  génération plus haute demande davantage.
+- Le barème de poids d'arbre généalogique allant jusqu'aux arrière-grands-parents (10/6/3/1, Felis
+  Silvestris, version 2.16 de Dofus) est un ancien système pré-3.5 : les sources post-3.5 (next-stage.fr,
+  Dofus pour les Noobs) indiquent explicitement que l'arbre pris en compte s'arrête désormais aux
+  grands-parents. Ne pas appliquer ce barème en Dofus 3.5.
+- Le croisement 45 %/45 %/10 % de Gambin.co (14/02/2026) ne précise pas la version de Dofus et sa date
+  est antérieure aux guides de refonte du 27/02 et du 03/03 : il pourrait décrire l'ancien système
+  pré-3.5 plutôt que la formule 30 %/90 % désormais bien recoupée. À traiter comme « ancien système
+  probable, non confirmé ».
+- DofusElevage.fr avance que la consanguinité serait supprimée par la refonte 3.5, mais le signale
+  lui-même comme non confirmé : point à retester en jeu avant de l'intégrer comme fait établi.
 - Aucune source consultée ne chiffre une prime de prix à l'Hôtel de Vente pour les dragodindes
   bicolores ; l'argument « elles valent plus » repose ici sur le nombre de bonus (deux contre un) et
   la difficulté d'obtention, pas sur un prix de marché observé.
