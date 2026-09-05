@@ -1,5 +1,5 @@
 ---
-titre: Parcours débutant : sa première semaine d'élevage
+titre: "Parcours débutant : sa première semaine d'élevage"
 slug: parcours-debutant
 statut: hypothese
 confiance: moyenne

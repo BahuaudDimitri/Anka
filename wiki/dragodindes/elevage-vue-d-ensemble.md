@@ -1,5 +1,5 @@
 ---
-titre: Élevage : vue d'ensemble
+titre: "Élevage : vue d'ensemble"
 slug: elevage-vue-d-ensemble
 statut: hypothese
 confiance: moyenne
