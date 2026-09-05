@@ -269,9 +269,21 @@ version courante, bouton « Vérifier », état, et « Redémarrer pour installe
 
 1. contrôle que `v${package.json.version}` égale le tag, sinon échec ;
 2. `npm ci`, `npm run verify` ;
-3. `npm run build` (electron-vite) puis `electron-builder --win --publish always` avec
-   `GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` ; permissions du job `contents: write` ;
-4. artefacts attendus dans la release : `Anka-Setup-<version>.exe`, `.exe.blockmap`, `latest.yml`.
+3. `npm run build` (electron-vite) puis `electron-builder --win --publish never` : l'installateur,
+   son `.blockmap` et `latest.yml` sont produits dans `dist/` (la config `publish` reste dans
+   `electron-builder.yml` : c'est elle qui génère `app-update.yml` pour l'updater) ;
+4. publication par `gh release create <tag> --latest dist/Anka-Setup-*.exe dist/*.blockmap
+   dist/latest.yml` avec `GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` ; permissions du job
+   `contents: write` ;
+5. **contrôle** : `gh release view <tag> --json assets` doit lister les trois artefacts, sinon le
+   run échoue.
+
+Pourquoi pas le publisher intégré d'electron-builder (`--publish always`) : constaté le
+2026-09-05 sur le premier tag `v0.1.0`, il a créé la release, envoyé le seul `.blockmap`, puis le
+process est sorti **en succès** sans envoyer l'exe ni `latest.yml` (deux publishers lancés en
+parallèle, « creating GitHub release » journalisé deux fois). Un run vert avec une release
+inutilisable est le faux vert le plus dangereux de ce chantier ; la publication explicite plus le
+contrôle des artefacts le rendent impossible.
 
 Le tag est posé par la session (`git tag v0.1.0 && git push origin v0.1.0`) après merge dans
 `main`. Preuve finale : installer v0.1.0, tager v0.1.1, constater la mise à jour.
