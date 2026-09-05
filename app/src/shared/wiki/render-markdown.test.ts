@@ -2,7 +2,9 @@ import { describe, expect, test } from 'vitest'
 
 import { createMarkdownRenderer } from './render-markdown'
 
-const render = createMarkdownRenderer({ knownSlugs: new Set(['jauges', 'reproduction']) })
+const render = createMarkdownRenderer({
+  knownSlugs: new Set(['jauges', 'reproduction', 'prix']),
+})
 
 describe('createMarkdownRenderer', () => {
   test('lien interne connu → route hash', () => {
@@ -12,6 +14,11 @@ describe('createMarkdownRenderer', () => {
     expect(render('Voir [repro](./reproduction.md#detail).')).toContain(
       'href="#/wiki/reproduction"',
     )
+  })
+
+  test('lien interne connu inter-dossier → route hash sur le slug seul', () => {
+    expect(render('Voir [le prix](kamas/prix.md).')).toContain('href="#/wiki/prix"')
+    expect(render('Voir [le prix](../kamas/prix.md).')).toContain('href="#/wiki/prix"')
   })
 
   test('lien interne inconnu → span inerte', () => {

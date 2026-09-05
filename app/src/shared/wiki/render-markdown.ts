@@ -4,7 +4,8 @@ export interface MarkdownRendererOptions {
   knownSlugs: ReadonlySet<string>
 }
 
-const INTERNAL_LINK = /^(?:\.\/)?([a-z0-9]+(?:-[a-z0-9]+)*)\.md(?:#.*)?$/
+const INTERNAL_LINK =
+  /^(?:\.\.?\/)?(?:[a-z0-9]+(?:-[a-z0-9]+)*\/)?([a-z0-9]+(?:-[a-z0-9]+)*)\.md(?:#.*)?$/
 
 function findLinkClose(tokens: Token[], openIndex: number): Token | undefined {
   let depth = 0

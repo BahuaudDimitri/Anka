@@ -1,4 +1,4 @@
-import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -94,5 +94,19 @@ describe('JsonStore.write', () => {
       StoreCorruptError,
     )
     expect(await ctx.store.read()).toEqual({ schemaVersion: 2, name: 'anka', count: 3 })
+  })
+
+  test('écriture atomique : passe par un fichier .tmp avant le rename final', async () => {
+    // La cible est un dossier (et non un fichier) : le `rename` d'un fichier vers un
+    // dossier échoue toujours, ce qui prouve que l'écriture ne modifie jamais la cible
+    // en place — elle passe forcément par un fichier temporaire distinct puis un rename.
+    const target = join(ctx.dir, 'demo.json')
+    await mkdir(target)
+
+    await expect(ctx.store.write({ schemaVersion: 2, name: 'anka', count: 3 })).rejects.toThrow()
+
+    expect(await readdir(ctx.dir)).toContain('demo.json.tmp')
+    const targetStats = await stat(target)
+    expect(targetStats.isDirectory()).toBe(true)
   })
 })
