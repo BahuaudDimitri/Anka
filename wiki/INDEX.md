@@ -12,3 +12,4 @@
 | Les jauges d'une dragodinde | jauges | valide | haute | 2026-09-05 |
 | Modèle de données pour l'écran de suivi d'élevage | modele-donnees | hypothese | moyenne | 2026-09-05 |
 | Parcours débutant : sa première semaine d'élevage | parcours-debutant | hypothese | moyenne | 2026-09-05 |
+| Rentabilité de l'élevage (serveur multi-compte, joueur casual) | rentabilite-multi-compte | hypothese | basse | 2026-09-05 |
