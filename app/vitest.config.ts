@@ -12,6 +12,14 @@ export default defineConfig({
       '@wiki': resolve(__dirname, '../wiki'),
     },
   },
+  // Les tests `happy-dom` chargent les modules via le graphe « client » de Vite (contrairement
+  // à l'environnement `node`, servi en SSR sans cette restriction) : sans cette entrée, le glob
+  // `@wiki/*/*.md` de `wiki-index.ts` est refusé car `wiki/` est hors de la racine `app/`.
+  server: {
+    fs: {
+      allow: [resolve(__dirname, '..')],
+    },
+  },
   test: {
     include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
     environment: 'node',
