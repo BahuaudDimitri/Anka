@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src/renderer/src'),
       '@shared': resolve(__dirname, 'src/shared'),
+      '@wiki': resolve(__dirname, '../wiki'),
     },
   },
   test: {

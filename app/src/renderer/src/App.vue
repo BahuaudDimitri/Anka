@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import AppRail from '@/components/AppRail.vue'
+import { Toaster } from '@/components/ui/sonner'
+import { useTheme } from '@/composables/use-theme'
 
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-
-const version = ref('…')
-onMounted(async () => {
-  version.value = await window.anka.app.version()
-})
+// Pose la classe dark/light sur <html> dès le montage et la maintient.
+useTheme()
 </script>
 
 <template>
-  <main
-    class="flex min-h-screen flex-col items-center justify-center gap-4 bg-background text-foreground"
-  >
-    <h1 class="text-2xl font-semibold">Anka</h1>
-    <Badge variant="secondary">version {{ version }}</Badge>
-    <Button>shadcn-vue fonctionne</Button>
-  </main>
+  <div class="flex h-screen overflow-hidden bg-background text-foreground">
+    <AppRail />
+    <div class="flex min-w-0 flex-1">
+      <RouterView />
+    </div>
+    <Toaster position="bottom-right" rich-colors />
+  </div>
 </template>
